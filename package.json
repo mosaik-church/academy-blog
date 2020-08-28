@@ -1,5 +1,5 @@
 {
-  "name": "cms-wordpress",
+  "name": "academy-blog",
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
