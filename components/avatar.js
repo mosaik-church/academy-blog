@@ -1,6 +1,7 @@
 export default function Avatar({ author }) {
   const name = author[0]?.title
   const baseURL = "http://mosaik.test/assets/main/profile/"
+  if (author.length <=0) return null
   return (
     <div className="flex items-center">
       <img

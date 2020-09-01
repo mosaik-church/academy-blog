@@ -2,19 +2,18 @@ import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import Container from '../../components/container'
 import PostBody from '../../components/post-body'
-import MoreStories from '../../components/more-stories'
 import Header from '../../components/header'
 import PostHeader from '../../components/post-header'
 import SectionSeparator from '../../components/section-separator'
 import Layout from '../../components/layout'
-import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
+import { getAllPostsWithSlug, getPostAndMorePosts, getPostData } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import Tags from '../../components/tags'
 
 export default function Post({ post, posts, preview }) {
   const router = useRouter()
-  const morePosts = posts?.edges
+  //const morePosts = posts?.edges
 
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
@@ -28,31 +27,32 @@ export default function Post({ post, posts, preview }) {
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
-            <article>
+            <article className="px-4">
               <Head>
                 <title>
-                  {post.title} | Next.js Blog Example with Wordpress
+                  {post.title}
                 </title>
                 <meta
                   property="og:image"
-                  content={post.featuredImage?.node?.sourceUrl}
+                  content={post.cover_image?.permalink}
                 />
               </Head>
               <PostHeader
                 title={post.title}
-                coverImage={post.featuredImage.node}
+                coverImage={post.cover_image}
                 date={post.date}
-                author={post.author.node}
-                categories={post.categories}
+                author={post.author}
+                slug={post.slug}
+                //categories={post.categories}
               />
               <PostBody content={post.content} />
-              <footer>
+              {/* <footer>
                 {post.tags.edges.length > 0 && <Tags tags={post.tags} />}
-              </footer>
+              </footer> */}
             </article>
 
             <SectionSeparator />
-            {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+            {/* {morePosts.length > 0 && <MoreStories posts={morePosts} />} */}
           </>
         )}
       </Container>
@@ -61,13 +61,13 @@ export default function Post({ post, posts, preview }) {
 }
 
 export async function getStaticProps({ params, preview = false, previewData }) {
-  const data = await getPostAndMorePosts(params.slug, preview, previewData)
-
+  //const data = await getPostAndMorePosts(params.slug, preview, previewData)
+  const data = await getPostData(params.slug)
   return {
     props: {
       preview,
-      post: data.post,
-      posts: data.posts,
+      post: data[0],
+      //posts: data.posts,
     },
   }
 }
@@ -76,7 +76,7 @@ export async function getStaticPaths() {
   const allPosts = await getAllPostsWithSlug()
 
   return {
-    paths: allPosts.edges.map(({ node }) => `/posts/${node.slug}`) || [],
+    paths: allPosts.map(( node ) => `/posts/${node.slug}`) || [],
     fallback: true,
   }
 }

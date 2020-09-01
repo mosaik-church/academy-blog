@@ -1,6 +1,16 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   purge: ['./components/**/*.js', './pages/**/*.js'],
   theme: {
+    fontFamily: {
+      serif: defaultTheme.fontFamily.serif,
+      mono: defaultTheme.fontFamily.mono,
+      sans: [
+        'Open Sans',
+        ...defaultTheme.fontFamily.sans
+      ],
+    },
     extend: {
       colors: {
         'accent-1': '#FAFAFA',
