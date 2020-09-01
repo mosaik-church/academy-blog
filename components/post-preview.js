@@ -1,37 +1,40 @@
-import Avatar from '../components/avatar'
-import Date from '../components/date'
 import CoverImage from './cover-image'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 
 export default function PostPreview({
   title,
+  className,
   coverImage,
   date,
   excerpt,
-  author,
   slug,
 }) {
   return (
-    <div>
-      <div className="mb-5">
+    <div className={`px-5 ${className}`}>
+      <div className="m-2 mb-6">
         <CoverImage title={title} coverImage={coverImage} slug={slug} />
       </div>
-      <h3 className="text-3xl mb-3 leading-snug">
-        <Link as={`/posts/${slug}`} href="/posts/[slug]">
-          <a
-            className="hover:underline"
-            dangerouslySetInnerHTML={{ __html: title }}
-          ></a>
-        </Link>
-      </h3>
-      <div className="text-lg mb-4">
-        <Date dateString={date} />
-      </div>
-      <div
-        className="text-lg leading-relaxed mb-4"
-        dangerouslySetInnerHTML={{ __html: excerpt }}
-      />
-      <Avatar author={author} />
+      <Link as={`/posts/${slug}`} href="/posts/[slug]">
+        <a>
+          <motion.h3
+            layoutId={`title-${slug}`}
+            initial={{opacity: 0, fontSize: 24 }}
+            animate={{opacity: 1, fontSize: 24}}
+            exit={{opacity: 0}}
+            layout="position"
+            className="text-2xl font-bold mb-3 inline-block leading-tight">
+              <motion.span
+                className="hover:underline inline-block"
+                dangerouslySetInnerHTML={{ __html: title }}
+              ></motion.span>
+          </motion.h3>
+          <motion.div
+            className="text-lg leading-relaxed mb-8"
+            dangerouslySetInnerHTML={{ __html: excerpt }}
+          />
+        </a>
+      </Link>
     </div>
   )
 }
