@@ -2,7 +2,7 @@
   "name": "academy-blog",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next",
+    "dev": "NODE_TLS_REJECT_UNAUTHORIZED=0 next",
     "build": "next build",
     "start": "next start"
   },
@@ -10,14 +10,14 @@
     "@tailwindcss/typography": "^0.2.0",
     "classnames": "2.2.6",
     "date-fns": "2.16.0",
-    "framer-motion": "^2.9.3",
-    "next": "latest",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0"
+    "framer-motion": "^2.9.4",
+    "next": "^10.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   },
   "devDependencies": {
     "postcss-flexbugs-fixes": "4.2.1",
     "postcss-preset-env": "^6.7.0",
-    "tailwindcss": "^1.9.5"
+    "tailwindcss": "^1.9.6"
   }
 }
