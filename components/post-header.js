@@ -1,13 +1,10 @@
-import Avatar from '../components/avatar'
-import Date from '../components/date'
 import CoverImage from '../components/cover-image'
-import PostTitle from '../components/post-title'
-import Categories from '../components/categories'
-import { motion } from 'framer-motion'
+import cn from 'classnames'
 
 export default function PostHeader({
   title,
   coverImage,
+  readTime,
   date,
   slug,
   author,
@@ -15,28 +12,14 @@ export default function PostHeader({
 }) {
   return (
     <>
-      <div className="mb-8 md:mb-16 sm:mx-0">
+      <div className={cn("mb-6", {"md:mt-8 md:mb-10": coverImage})}>
         <CoverImage title={title} coverImage={coverImage} />
       </div>
-      <motion.div
-        initial={{opacity: 0}}
-        animate={{opacity: 1}}
-        exit={{opacity: 0}}
-        layout="position"
-        layoutId={`title-${slug}`}>
-        <PostTitle>{title}</PostTitle>
-      </motion.div>
-      <div className="hidden md:block md:mb-12">
-        <Avatar author={author} />
-      </div>
-      <div className="max-w-2xl mx-auto">
-        {/* <div className="block md:hidden mb-6">
-          <Avatar author={author} />
-        </div>
-        <div className="mb-6 text-lg">
-          Posted <Date dateString={date} />
-          {/* <Categories categories={categories} /> 
-        </div> */}
+      <div className="text-gray-700 mb-3 text-sm">{readTime} Minuten</div>
+      <div>
+          <h1
+            className="text-4xl md:text-5xl lg:text-6xl font-bold inline-block tracking-tighter leading-tight md:leading-none mb-4 md:text-left"
+          >{title}</h1>
       </div>
     </>
   )

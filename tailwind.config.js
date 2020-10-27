@@ -2,6 +2,9 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   purge: ['./components/**/*.js', './pages/**/*.js'],
+  plugins: [
+    require('@tailwindcss/typography')
+  ],
   theme: {
     fontFamily: {
       serif: defaultTheme.fontFamily.serif,
@@ -10,6 +13,16 @@ module.exports = {
         'Open Sans',
         ...defaultTheme.fontFamily.sans
       ],
+    },
+    typography: {
+      default: {
+        css: {
+          a: {
+            'overflow-wrap': 'anywhere'
+          },
+          color: '#2d3748',
+        },
+      },
     },
     extend: {
       colors: {
@@ -40,4 +53,7 @@ module.exports = {
       },
     },
   },
+  variants: {
+    cursor: ['responsive', 'hover'],
+  }
 }

@@ -2,18 +2,25 @@ import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import Container from '../../components/container'
 import PostBody from '../../components/post-body'
-import Header from '../../components/header'
 import PostHeader from '../../components/post-header'
 import SectionSeparator from '../../components/section-separator'
 import Layout from '../../components/layout'
 import { getAllPostsWithSlug, getPostAndMorePosts, getPostData } from '../../lib/api'
-import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import Tags from '../../components/tags'
 
 export default function Post({ post, posts, preview }) {
   const router = useRouter()
-  //const morePosts = posts?.edges
+  function calulateReadingTime() {
+    let length = 0
+    post.content.map((item)=>{
+      if (item.type == 'text') {
+        length += item.text.replace(/<.+?>/, " ").split(" ").length;
+      }
+    })
+    return Math.ceil(length / 225)
+  }
+  const readTime = calulateReadingTime()
 
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
@@ -22,12 +29,11 @@ export default function Post({ post, posts, preview }) {
   return (
     <Layout preview={preview}>
       <Container>
-        <Header />
         {router.isFallback ? (
-          <PostTitle>Loading…</PostTitle>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-none">Loading…</h1>
         ) : (
           <>
-            <article className="px-4">
+            <article className="px-4 max-w-2xl mx-auto mb-12">
               <Head>
                 <title>
                   {post.title}
@@ -43,6 +49,7 @@ export default function Post({ post, posts, preview }) {
                 date={post.date}
                 author={post.author}
                 slug={post.slug}
+                readTime={readTime}
                 //categories={post.categories}
               />
               <PostBody content={post.content} />
@@ -51,8 +58,11 @@ export default function Post({ post, posts, preview }) {
               </footer> */}
             </article>
 
-            <SectionSeparator />
-            {/* {morePosts.length > 0 && <MoreStories posts={morePosts} />} */}
+            {/*  
+              TODO: Post recommendations
+              <SectionSeparator />
+              {morePosts.length > 0 && <MoreStories posts={morePosts} />} 
+            */}
           </>
         )}
       </Container>
@@ -77,6 +87,6 @@ export async function getStaticPaths() {
 
   return {
     paths: allPosts.map(( node ) => `/posts/${node.slug}`) || [],
-    fallback: true,
+    fallback: false,
   }
 }

@@ -1,15 +1,17 @@
 import cn from 'classnames'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { useState } from 'react'
 
 export default function CoverImage({ title, coverImage, slug }) {
+  const [imageUrl, setImageUrl] = useState(coverImage?.permalink)
+  function loadPlaceholder() {
+    setImageUrl("https://images.unsplash.com/photo-1558519847-19fc2aa15a16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
+  }
   const image = (
-    <img style={{maxHeight: '300px', width: '100%', objectFit: 'cover'}}
-      src={coverImage?.permalink}
-    />
+    <img style={{maxHeight: '50vh', width: '100%', objectFit: 'cover'}} src={imageUrl} onError={()=>loadPlaceholder()}/>
   )
   return (
-    <motion.div className="-mx-5 sm:mx-0 relative z-10" layoutId={title} >
+    <div className={slug ? '' : '-mx-5 md:mx-0'} >
       {slug ? (
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
           <a aria-label={title}>{image}</a>
@@ -17,6 +19,6 @@ export default function CoverImage({ title, coverImage, slug }) {
       ) : (
         image
       )}
-    </motion.div>
+    </div>
   )
 }

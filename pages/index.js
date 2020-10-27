@@ -10,7 +10,7 @@ export default function Index({ allPosts, preview }) {
   const container = {
     show: {
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.075
       }
     }
   }
@@ -28,32 +28,30 @@ export default function Index({ allPosts, preview }) {
         <Head>
           <title>Mosaik Academy - Blog</title>
         </Head>
-        <Container>
           <Intro />
           <section>
             <motion.div 
               variants={container}
-              className="flex flex-col mb-32"
+              className="flex flex-col mb-32 space-y-3 md:space-y-0"
               initial="hidden"
               animate="show"
             >
               {allPosts.map(( post, index ) => (
-                <motion.div variants={index > 0 && item}>
-                <PostPreview
-                  key={post.slug}
-                  className={ index%2!==0 ? 'bg-gray-200' : ''}
-                  title={post.title}
-                  coverImage={post.cover_image}
-                  date={post.date}
-                  author={post.author}
-                  slug={post.slug}
-                  excerpt={post.description}
-                />
+                <motion.div key={index} variants={item}>
+                  <PostPreview
+                    key={index}
+                    className={ index%2!==0 ? 'bg-gray-250' : ''}
+                    title={post.title}
+                    coverImage={post.cover_image}
+                    date={post.date}
+                    author={post.author}
+                    slug={post.slug}
+                    excerpt={post.description}
+                  />
                 </motion.div>
               ))}
             </motion.div>
           </section>
-        </Container>
       </Layout>
     </>
   )

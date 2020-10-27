@@ -1,0 +1,11 @@
+<svg class="h-14 p-3" viewBox="0 0 439 286" version="1.1" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/"
+    style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <g id="logo">
+        
+        <path d="M313.837,168.346c1.255,0 2.461,-1.323 2.207,-2.53l-34.667,-154.359c-0.394,-1.743 -2.392,-2.3 -3.553,-1.139l-154.727,154.438c-1.28,1.338 -0.443,3.562 1.477,3.59l189.263,0Z"
+            class="fill-current" style="fill-rule:nonzero;"></path>
+        <path d="M206.097,72.957c0.696,-0.696 0.835,-2.066 -0.07,-2.972l-59.479,-59.596c-1.137,-1.138 -3.249,-1.046 -3.714,1.276l-35.043,154.125c-0.512,2.229 2.205,3.343 3.618,1.923l94.688,-94.756Z"
+            class="fill-current" style="fill-rule:nonzero;"></path>
+    </g>
+</svg>

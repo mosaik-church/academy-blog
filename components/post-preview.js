@@ -1,6 +1,6 @@
 import CoverImage from './cover-image'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import cn from 'classnames'
 
 export default function PostPreview({
   title,
@@ -11,28 +11,21 @@ export default function PostPreview({
   slug,
 }) {
   return (
-    <div className={`px-5 ${className}`}>
-      <div className="m-2 mb-6">
-        <CoverImage title={title} coverImage={coverImage} slug={slug} />
-      </div>
+    <div className={`${className}`}>
       <Link as={`/posts/${slug}`} href="/posts/[slug]">
-        <a>
-          <motion.h3
-            layoutId={`title-${slug}`}
-            initial={{opacity: 0, fontSize: 24 }}
-            animate={{opacity: 1, fontSize: 24}}
-            exit={{opacity: 0}}
-            layout="position"
-            className="text-2xl font-bold mb-3 inline-block leading-tight">
-              <motion.span
-                className="hover:underline inline-block"
-                dangerouslySetInnerHTML={{ __html: title }}
-              ></motion.span>
-          </motion.h3>
-          <motion.div
-            className="text-lg leading-relaxed mb-8"
+        <a className="inline-block max-w-2xl mx-auto mb-4 md:py-10 md:flex">
+          <div className={cn("mb-4 md:mb-0 flex-shrink-0",{"mb-6 md:w-56 md:mr-6": coverImage})}>
+            <CoverImage title={title} coverImage={coverImage} slug={slug} />
+          </div>
+          <div className="px-4">
+          <h3 className="text-2xl font-bold inline-block leading-tight mb-2">
+            <span className="hover:underline inline-block">{title}</span>
+          </h3>
+          <div
+            className="text-lg leading-relaxed mb-2"
             dangerouslySetInnerHTML={{ __html: excerpt }}
           />
+          </div>
         </a>
       </Link>
     </div>
