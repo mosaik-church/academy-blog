@@ -4,7 +4,7 @@
 /* Start purging... */
 @tailwind components;
 @tailwind utilities;
-/* Stop purging. */
+
 
 .bg-gray-250 {
     background-color: #F5F6F5;
@@ -27,3 +27,4 @@ p:empty { height: 0.25rem }
 .text-brand { color: #97AF95 }
 
 .prose > ul > li > p { margin: 0 !important }
+/* Stop purging. */

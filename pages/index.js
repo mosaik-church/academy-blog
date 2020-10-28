@@ -28,11 +28,10 @@ export default function Index({ allPosts, preview }) {
         <Head>
           <title>Mosaik Academy - Blog</title>
         </Head>
-          <Intro />
           <section>
             <motion.div 
               variants={container}
-              className="flex flex-col mb-32 space-y-3 md:space-y-0"
+              className="flex flex-col mb-32 space-y-1 md:space-y-0"
               initial="hidden"
               animate="show"
             >

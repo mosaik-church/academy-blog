@@ -33,7 +33,7 @@ export default function Post({ post, posts, preview }) {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-none">Loading…</h1>
         ) : (
           <>
-            <article className="px-4 max-w-2xl mx-auto mb-12">
+            <article className="px-4 max-w-2xl mx-auto mb-12" style={{fontSize: 17, maxWidth: 'calc(70ch + 4rem)'}}>
               <Head>
                 <title>
                   {post.title}
@@ -52,10 +52,7 @@ export default function Post({ post, posts, preview }) {
                 readTime={readTime}
                 //categories={post.categories}
               />
-              <div style={{maxWidth: 'calc(70ch + 2rem)'}}>
-                <PostBody content={post.content} />
-              </div>
-              
+              <PostBody content={post.content} />
               {/* <footer>
                 {post.tags.edges.length > 0 && <Tags tags={post.tags} />}
               </footer> */}
