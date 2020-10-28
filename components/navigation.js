@@ -15,7 +15,7 @@ export default function Navigation() {
             <nav className="space-x-4 hidden">
                 <Link href="/">Home</Link>
                 <Link href="/podcast">Podcast</Link>
-                <a target="_blank" href="https://mosaik-stuttgart.de" className="ml-3 hidden">
+                <a target="_blank" rel="noopener noreferrer" href="https://mosaik-stuttgart.de" className="ml-3 hidden">
                     <span className="m-px border border-gray-400 bg-gray-300 font-medium text-xs text-gray-900 px-2 py-1 rounded leading-snug hover:cursor-pointer">
                         Mosaik Church
                         <svg className="inline ml-2 -mt-px text-gray-800" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 27" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeLinejoin="arcs"><g fill="none" fill-rule="evenodd"><path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8c0-1.1.9-2 2-2h5M15 3h6v6M10 14L20.2 3.8"/></g></svg>
