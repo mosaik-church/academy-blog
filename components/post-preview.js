@@ -21,8 +21,8 @@ export default function PostPreview({
           <h3 className="text-2xl font-bold inline-block leading-tight mb-2">
             <span className="hover:underline inline-block">{title}</span>
           </h3>
-          <div
-            className="text-lg leading-relaxed mb-2"
+          <div style={{fontSize: 17}}
+            className="md:text-lg leading-relaxed mb-2"
             dangerouslySetInnerHTML={{ __html: excerpt }}
           />
           </div>

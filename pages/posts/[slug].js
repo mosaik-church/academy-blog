@@ -18,7 +18,7 @@ export default function Post({ post, posts, preview }) {
         length += item.text.replace(/<.+?>/, " ").split(" ").length;
       }
     })
-    return Math.ceil(length / 225)
+    return Math.ceil((length + 100) / 220)
   }
   const readTime = calulateReadingTime()
 
@@ -52,7 +52,10 @@ export default function Post({ post, posts, preview }) {
                 readTime={readTime}
                 //categories={post.categories}
               />
-              <PostBody content={post.content} />
+              <div style={{maxWidth: 'calc(70ch + 2rem)'}}>
+                <PostBody content={post.content} />
+              </div>
+              
               {/* <footer>
                 {post.tags.edges.length > 0 && <Tags tags={post.tags} />}
               </footer> */}

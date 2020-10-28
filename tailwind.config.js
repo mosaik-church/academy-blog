@@ -10,13 +10,15 @@ module.exports = {
       serif: defaultTheme.fontFamily.serif,
       mono: defaultTheme.fontFamily.mono,
       sans: [
-        'Open Sans',
+        'Source Sans Pro',
         ...defaultTheme.fontFamily.sans
       ],
     },
     typography: {
       default: {
         css: {
+          fontSize: 17,
+          //'max-width': '70ch',
           a: {
             'overflow-wrap': 'anywhere'
           },

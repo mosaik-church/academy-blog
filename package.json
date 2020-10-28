@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "NODE_TLS_REJECT_UNAUTHORIZED=0 next",
-    "build": "next build",
-    "start": "next start"
+    "build": "NODE_TLS_REJECT_UNAUTHORIZED=0 next build",
+    "start": "next start",
+    "deploy": "npm run build && next export && cd out && vercel --prod && cd .."
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.2.0",
@@ -13,7 +14,8 @@
     "framer-motion": "^2.9.4",
     "next": "^10.0.0",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "snarkdown": "^2.0.0"
   },
   "devDependencies": {
     "postcss-flexbugs-fixes": "4.2.1",

@@ -11,7 +11,7 @@ export default function CoverImage({ title, coverImage, slug }) {
     <img style={{maxHeight: '50vh', width: '100%', objectFit: 'cover'}} src={imageUrl} onError={()=>loadPlaceholder()}/>
   )
   return (
-    <div className={slug ? '' : '-mx-5 md:mx-0'} >
+    <div className={slug ? '' : '-mx-4 md:mx-0'} >
       {slug ? (
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
           <a aria-label={title}>{image}</a>
