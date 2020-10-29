@@ -15,5 +15,6 @@
   ],
   "theme_color": "#377e70",
   "background_color": "#377e70",
-  "display": "standalone"
+  "display": "standalone",
+  "scope": "/blog"
 }
