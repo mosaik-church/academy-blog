@@ -79,6 +79,7 @@ export async function getStaticProps({ params, preview = false, previewData }) {
       post: data[0],
       //posts: data.posts,
     },
+    revalidate: 1
   }
 }
 
@@ -87,7 +88,6 @@ export async function getStaticPaths() {
 
   return {
     paths: allPosts.map(( node ) => `/posts/${node.slug}`) || [],
-    fallback: true,
-    revalidate: 1
+    fallback: true
   }
 }
