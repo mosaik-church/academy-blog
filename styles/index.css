@@ -18,6 +18,11 @@
 
 p:empty { height: 0.25rem }
 
+.cover-image {
+    max-height: 50vh;
+    @apply w-full object-cover
+}
+
 .text-brand { color: #97AF95 }
 .bg-brand-900 { background-color: #1A1A1A;}
 

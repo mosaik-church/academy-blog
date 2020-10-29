@@ -1,14 +1,15 @@
-import cn from 'classnames'
-import Link from 'next/link'
-import { useState } from 'react'
+import Image from 'next/image'
 
 export default function CoverImage({ title, coverImage, slug }) {
-  const [imageUrl, setImageUrl] = useState(coverImage?.permalink)
-  function loadPlaceholder() {
-    setImageUrl("https://images.unsplash.com/photo-1558519847-19fc2aa15a16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
+
+  const attr = {
+    height: slug ? '400' : false,
+    width: slug ? '600' : false,
+    unsized: slug ? false : true
   }
+
   const image = (
-    coverImage && <img alt={title} style={{maxHeight: '50vh', width: '100%', objectFit: 'cover'}} src={imageUrl} onError={()=>loadPlaceholder()}/>
+    coverImage && <Image {...attr} alt={title} className="cover-image" src={coverImage?.permalink} />
   )
   return (
     <div className={slug ? '' : '-mx-4 md:mx-0'} >
