@@ -14,5 +14,10 @@ module.exports = {
         },
       },
     ],
+    [
+      'postcss-baseurl', {
+        base: process.env.BASE_URL || ''
+      }
+    ]
   ],
 }
