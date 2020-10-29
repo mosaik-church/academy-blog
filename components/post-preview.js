@@ -13,8 +13,8 @@ export default function PostPreview({
   return (
     <div className={`${className}`}>
       <Link as={`/posts/${slug}`} href="/posts/[slug]">
-        <a className="inline-block max-w-2xl mx-auto mb-4 md:py-10 md:flex">
-          <div className={cn("mb-4 md:mb-0 flex-shrink-0",{"mb-6 md:w-56 md:mr-4 md:ml-4": coverImage})}>
+        <a className="inline-block max-w-2xl mx-auto mb-3 md:py-10 md:flex">
+          <div className={cn("mb-4 md:mb-0 flex-shrink-0",{"md:w-56 md:mr-4 md:ml-4": coverImage})}>
             <CoverImage title={title} coverImage={coverImage} slug={slug} />
           </div>
           <div className="px-4 md:px-4">
