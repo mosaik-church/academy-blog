@@ -25,7 +25,7 @@ p:empty { height: 0.25rem }
 /* Stop purging. */
 
 .prose > h2::before {
-    content: url('/pattern.svg');
+    content: url('/blog/pattern.svg');
     position: absolute;
     z-index: -1;
     transform: translate(-1.125rem, -0.9rem) rotate(-2deg);
