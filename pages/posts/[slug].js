@@ -13,7 +13,7 @@ export default function Post({ post, posts, preview }) {
   const router = useRouter()
   function calulateReadingTime() {
     let length = 0
-    post.content.map((item)=>{
+    post?.content.map((item)=>{
       if (item.type == 'text') {
         length += item.text.replace(/<.+?>/, " ").split(" ").length;
       }
