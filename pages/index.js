@@ -46,7 +46,7 @@ export default function Index({ allPosts, preview }) {
                     author={post.author}
                     slug={post.slug}
                     excerpt={post.description}
-                    priority={index===0}
+                    priority={index<=1}
                   />
                 </motion.div>
               ))}
