@@ -7,6 +7,7 @@ export default function PostPreview({
   className,
   coverImage,
   date,
+  priority,
   excerpt,
   slug,
 }) {
