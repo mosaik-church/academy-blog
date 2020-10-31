@@ -5,8 +5,10 @@ export default class MyDocument extends Document {
     return (
       <Html lang="de">
         <Head>
-          <link rel="preload" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" as="style"></link>
-          <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+          <link rel="preload" href="/fonts/source-sans-pro-light.woff2" as="font"></link>
+          <link rel="preload" href="/fonts/source-sans-pro-regular.woff2" as="font"></link>
+          <link rel="preload" href="/fonts/source-sans-pro-semibold.woff2" as="font"></link>
+          <link rel="preload" href="/fonts/source-sans-pro-bold.woff2" as="font"></link>
         </Head>
         <body>
           <Main />
