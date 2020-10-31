@@ -16,7 +16,7 @@ export default function PostPreview({
       <Link as={`/posts/${slug}`} href="/posts/[slug]">
         <a className="inline-block max-w-2xl mx-auto mb-3 md:py-10 md:flex">
           <div className={cn("mb-4 md:mb-0 flex-shrink-0",{"w-screen md:w-56 md:mr-4 md:ml-4": coverImage})}>
-            <CoverImage title={title} coverImage={coverImage} slug={slug} />
+            <CoverImage priority={priority} title={title} coverImage={coverImage} slug={slug} />
           </div>
           <div className="px-4 md:px-4">
           <h3 className="text-2xl font-bold inline-block leading-tight mb-2">
