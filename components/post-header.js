@@ -12,8 +12,8 @@ export default function PostHeader({
 }) {
   return (
     <>
-      <div className={cn("mb-6", {"md:mt-8 md:mb-10 w-screen md:w-auto": coverImage, 'max-h-50vh': slug})}>
-        <CoverImage priority={true} className="cover-image" title={title} coverImage={coverImage} />
+      <div className={cn("mb-6", {"md:mt-8 md:mb-10": coverImage, 'max-h-50vh': slug})}>
+        <CoverImage priority={true} className="object-cover max-h-50vh" title={title} coverImage={coverImage} />
       </div>
       <div className="text-gray-700 mb-3 text-sm">{readTime} Minuten</div>
       <div>
